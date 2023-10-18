@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const path = require("path");
 
 const app = express();
 
@@ -22,6 +23,8 @@ app.use((req, res, next) => {
 
 // Template engine
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "src/views"));
+app.use(express.static(__dirname + "/public"));
 
 // Rotas
 app.use("/", require("./src/routes/routes"));
