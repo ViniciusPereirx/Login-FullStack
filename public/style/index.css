@@ -29,6 +29,11 @@ form {
   border-radius: 50px;
 }
 
+.btn-outline-success {
+  width: 100%;
+  border-radius: 50px;
+}
+
 .form-control {
   color: rgba(0, 0, 0, 0.87);
   background: transparent;
