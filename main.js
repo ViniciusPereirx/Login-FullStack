@@ -5,8 +5,13 @@ const bcrypt = require("bcrypt");
 
 const app = express();
 
+//Conectando ao MongoDB
+require("./src/server/database");
+
 // Middlewares
 app.use(express.json());
+
+app.use(express.urlencoded({ extended: false }));
 
 app.use(
   session({
