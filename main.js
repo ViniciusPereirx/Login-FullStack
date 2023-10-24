@@ -1,7 +1,6 @@
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
-const bcrypt = require("bcrypt");
 
 const app = express();
 
