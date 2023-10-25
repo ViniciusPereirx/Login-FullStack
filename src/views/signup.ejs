@@ -1,7 +1,7 @@
 <%- include('./layouts/header.ejs') %>
 
-<div class="container-fluid">
-  <form action="/signup" method="post" class="mx-auto">
+<div class="container">
+  <form action="/signup" method="post" class="mx-auto py-5 shadow p-5">
     <h4 class="text-center">Cadastrar-se</h4>
     <% if (message) { %>
     <div
@@ -21,15 +21,18 @@
       <label for="email" class="form-label">Email</label>
       <input
         type="email"
-        class="form-control"
+        class="form-control color-signup-email"
         id="email"
         name="email"
         aria-describedby="emailHelp"
         required
+        autocomplete="off"
       />
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Senha</label>
+      <label for="password" class="form-label color-signup-password"
+        >Senha</label
+      >
       <input
         type="password"
         class="form-control"
@@ -39,7 +42,9 @@
       />
     </div>
     <div class="mb-3">
-      <label for="confirmPassword" class="form-label">Confirmar senha</label>
+      <label for="confirmPassword" class="form-label color-signup-password"
+        >Confirmar senha</label
+      >
       <input
         type="password"
         class="form-control"
@@ -49,9 +54,9 @@
       />
     </div>
 
-    <button type="submit" class="btn btn-outline-success mt-3">
-      Cadastrar-se
-    </button>
+    <div class="d-flex justify-content-center mt-5">
+      <button type="submit" class="btn btn-success">Cadastrar-se</button>
+    </div>
   </form>
 </div>
 

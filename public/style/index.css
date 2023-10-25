@@ -2,45 +2,53 @@
   padding: 0;
   margin: 0;
   box-sizing: 0;
-}
-
-/* body {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(186, 186, 186, 1) 31%,
-    rgba(125, 125, 125, 1) 48%,
-    rgba(61, 61, 61, 1) 79%
-  );
-
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-image: url("/images/background.png");
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 form {
-  width: 450px;
-  background-color: #fff;
+  width: 30% !important;
+  background-color: transparent;
   padding: 4rem;
   border-radius: 20px;
-  margin-top: 150px;
+  position: absolute;
+  top: 130px;
+  left: 35%;
 }
 
-.btn-outline-primary {
-  width: 100%;
-  border-radius: 50px;
+.btn-primary {
+  width: 60%;
+  border-radius: 10px;
 }
 
-.btn-outline-success {
-  width: 100%;
-  border-radius: 50px;
+.btn-success {
+  width: 80%;
+  border-radius: 10px;
 }
 
 .form-control {
-  color: rgba(0, 0, 0, 0.87);
-  background: transparent;
+  color: #fff !important;
+  background: transparent !important;
   box-shadow: none !important;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  border-bottom: 1px solid #000;
   border-radius: 4px 4px 0 0;
+}
+
+.color-signup-email {
+  color: #000 !important;
+}
+
+.color-signup-password {
+  color: #fff;
 }
 
 h4 {
@@ -50,20 +58,19 @@ h4 {
 
 .form-label {
   font-weight: 700 !important;
-} */
+}
 
-@media only screen and (max-width: 600px) {
-  body {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(186, 186, 186, 1) 31%,
-      rgba(125, 125, 125, 1) 48%,
-      rgba(61, 61, 61, 1) 79%
-    );
-  }
+p,
+a {
+  color: #fff;
+}
+a:hover {
+  color: #01fc22;
+}
 
+@media only screen and (max-width: 830px) {
   form {
-    width: 100%;
+    width: 100% !important;
+    left: 0 !important;
   }
 }

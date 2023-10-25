@@ -1,8 +1,9 @@
 <%- include('./layouts/header.ejs') %>
 
-<div class="container-fluid">
-  <form action="/login" method="post" class="mx-auto">
+<div class="container">
+  <form action="/login" method="post" class="mx-auto py-5 shadow p-5">
     <h4 class="text-center">Login</h4>
+    <hr />
     <% if (message) { %>
     <div
       class="alert text-center alert-dismissible fade show alert-<%= message.type %> mt-2"
@@ -18,31 +19,36 @@
     </div>
     <% } %>
     <div class="mb-3 mt-5">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <label for="email" class="form-label">Email</label>
       <input
         type="email"
         class="form-control"
-        id="exampleInputEmail1"
+        id="email"
         name="email"
         aria-describedby="emailHelp"
         required
+        autocomplete="off"
       />
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <label for="password" class="form-label color-signup-password"
+        >Password</label
+      >
       <input
         type="password"
         class="form-control"
-        id="exampleInputPassword1"
+        id="password"
         name="password"
         required
       />
-      <p id="emailHelp" class="form-text mt-3">
-        Não possui uma conta? <a href="/signup">Cadastrar-se</a>
-      </p>
     </div>
 
-    <button type="submit" class="btn btn-outline-primary mt-3">Entrar</button>
+    <div class="d-flex justify-content-center mt-5">
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </div>
+    <p id="emailHelp" class="form-label mt-4 text-center">
+      Não possui uma conta? <a href="/signup">Cadastrar-se</a>
+    </p>
   </form>
 </div>
 

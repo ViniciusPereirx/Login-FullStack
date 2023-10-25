@@ -79,7 +79,6 @@ router.post("/login", async (req, res) => {
     }
   } catch {
     res.redirect("/");
-    console.log("Erro na credenciais");
   }
 });
 
