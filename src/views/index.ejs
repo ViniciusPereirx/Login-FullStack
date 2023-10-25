@@ -1,8 +1,23 @@
 <%- include('./layouts/header.ejs') %>
 
 <div class="container-fluid">
+  <div class="wrapper"></div>
   <form action="/login" method="post" class="mx-auto">
     <h4 class="text-center">Login</h4>
+    <% if (message) { %>
+    <div
+      class="alert text-center alert-dismissible fade show alert-<%= message.type %> mt-2"
+      role="alert"
+    >
+      <button
+        class="btn-close"
+        type="button"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong><%= message.message %></strong>
+    </div>
+    <% } %>
     <div class="mb-3 mt-5">
       <label for="exampleInputEmail1" class="form-label">Email</label>
       <input

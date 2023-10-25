@@ -3,7 +3,21 @@
 <div class="container-fluid">
   <form action="/signup" method="post" class="mx-auto">
     <h4 class="text-center">Cadastrar-se</h4>
-    <div class="mb-3 mt-5">
+    <% if (message) { %>
+    <div
+      class="alert alert-dismissible fade show alert-<%= message.type %> mt-2"
+      role="alert"
+    >
+      <button
+        class="btn-close"
+        type="button"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong><%= message.message %></strong>
+    </div>
+    <% } %>
+    <div class="mb-3 mt-4">
       <label for="email" class="form-label">Email</label>
       <input
         type="email"

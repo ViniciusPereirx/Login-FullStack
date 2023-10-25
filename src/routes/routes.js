@@ -24,14 +24,16 @@ router.post("/signup", async (req, res) => {
   });
 
   // Verificando se o usuáro já existe no DB
-  const verifyUser = await User.findOne({ email: user.email });
+  const userExist = await User.findOne({ email: user.email });
 
-  if (verifyUser) {
+  if (userExist) {
+    req.session.message = {
+      type: "danger",
+      message: "Já existe esse email cadastrado.",
+    };
     res.redirect("/signup");
-    console.log("Usuário já existe");
-  } else if (!verifyUser && user.password === user.confirmPassword) {
+  } else if (!userExist && user.password === user.confirmPassword) {
     //Encriptando senha usando bcrypt
-
     const hashedPassword = await bcrypt.hash(user.password, 10);
 
     // Trocando valor do senha original
@@ -39,10 +41,17 @@ router.post("/signup", async (req, res) => {
     user.confirmPassword = hashedPassword;
 
     await User.insertMany(user);
+    req.session.message = {
+      type: "success",
+      message: "Usuário cadastrado com sucesso.",
+    };
     res.redirect("/");
   } else {
+    req.session.message = {
+      type: "danger",
+      message: "Senhas não estão combinando.",
+    };
     res.redirect("/signup");
-    console.log("Senhas não combinam");
   }
 });
 
@@ -51,7 +60,10 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      console.log("Email não encontrado no banco de dados!");
+      req.session.message = {
+        type: "danger",
+        message: "Email não cadastrado.",
+      };
     }
 
     const isValid = await bcrypt.compare(req.body.password, user.password);
@@ -59,11 +71,15 @@ router.post("/login", async (req, res) => {
     if (isValid) {
       res.render("home", { title: "Página Inicial" });
     } else {
-      req.send("Erro nas credenciais");
+      req.session.message = {
+        type: "danger",
+        message: "Email ou senha incorretos.",
+      };
+      res.redirect("/");
     }
   } catch {
     res.redirect("/");
-    console.log("Email ou senha incorreto!");
+    console.log("Erro na credenciais");
   }
 });
 
